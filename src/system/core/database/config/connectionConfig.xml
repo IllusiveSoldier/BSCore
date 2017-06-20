@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dbConnection>
+    <user>knack</user>
+    <password>927360</password>
+    <serverName>localhost</serverName>
+    <portNumber>1433</portNumber>
+    <databaseName>banking_system</databaseName>
+</dbConnection>

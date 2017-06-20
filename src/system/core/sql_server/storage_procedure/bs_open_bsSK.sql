@@ -1,0 +1,18 @@
+CREATE PROCEDURE dbo.bs_open_bsSK
+AS
+	SET NOCOUNT ON;
+	BEGIN TRY
+			OPEN SYMMETRIC KEY bsSK
+			DECRYPTION BY ASYMMETRIC KEY bsAK
+			WITH PASSWORD = '927360ab'
+	END TRY
+	BEGIN CATCH
+			IF @@TRANCOUNT > 0
+				ROLLBACK
+
+			DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT;
+			SELECT
+				@ErrorMessage = ERROR_MESSAGE( ),
+				@ErrorSeverity = ERROR_SEVERITY( );
+			RAISERROR (@ErrorMessage, @ErrorSeverity, 1);
+	END CATCH

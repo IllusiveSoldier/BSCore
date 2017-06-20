@@ -1,0 +1,6 @@
+CREATE FUNCTION dbo.bs_Get_decrypted_string_bySK(@targetBytes VARBINARY(255))
+RETURNS VARCHAR(255)
+AS
+	BEGIN
+		RETURN CAST(DECRYPTBYKEY(@targetBytes) AS VARCHAR(255))
+	END
